@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StatTracker
+namespace McKnight.StatTracker
 {
-    class Player
+    public class GameLogLineParserBuilder
     {
-        public String FirstName { get; set;  }
-        public String LastName { get; set; }
     }
 }

@@ -14,8 +14,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using McKnight.StatTracker.Model;
 
-namespace StatTracker
+namespace McKnight.StatTracker
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -28,6 +29,9 @@ namespace StatTracker
         /// </summary>
         public App()
         {
+            //single fielded by the right fielder, line drive to short right field. 
+            //The runner on 2nd scored (advanced to home), and the runner on first advanced to third.
+            //Play play = Play.create("S9/L9S.2-H;1-3");
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }

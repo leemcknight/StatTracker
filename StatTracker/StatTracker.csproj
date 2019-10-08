@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,19 +95,184 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BoxScorePage.xaml.cs">
+      <DependentUpon>BoxScorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameLogLineParserBuilder.cs" />
+    <Compile Include="GameLogParser.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Player.cs" />
+    <Compile Include="PersonPage.xaml.cs">
+      <DependentUpon>PersonPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchedulePage.xaml.cs">
+      <DependentUpon>SchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamPage.xaml.cs">
+      <DependentUpon>TeamPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Data\franchises\CurrentNames.txt" />
     <None Include="StatTracker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\ballparks\ballparks.txt" />
+    <Content Include="Data\gamelogs\GL2010.TXT" />
+    <Content Include="Data\gamelogs\GL2011.TXT" />
+    <Content Include="Data\gamelogs\GL2012.TXT" />
+    <Content Include="Data\gamelogs\GL2013.TXT" />
+    <Content Include="Data\gamelogs\GL2014.TXT" />
+    <Content Include="Data\gamelogs\GL2015.TXT" />
+    <Content Include="Data\gamelogs\GL2016.TXT" />
+    <Content Include="Data\gamelogs\glfields.txt" />
+    <Content Include="Data\people\people.txt" />
+    <Content Include="Data\schedule\1877SKED.TXT" />
+    <Content Include="Data\schedule\1878SKED.TXT" />
+    <Content Include="Data\schedule\1879SKED.TXT" />
+    <Content Include="Data\schedule\1880SKED.TXT" />
+    <Content Include="Data\schedule\1881SKED.TXT" />
+    <Content Include="Data\schedule\1882SKED.TXT" />
+    <Content Include="Data\schedule\1883SKED.TXT" />
+    <Content Include="Data\schedule\1884SKED.TXT" />
+    <Content Include="Data\schedule\1885SKED.TXT" />
+    <Content Include="Data\schedule\1886SKED.TXT" />
+    <Content Include="Data\schedule\1887SKED.TXT" />
+    <Content Include="Data\schedule\1888SKED.TXT" />
+    <Content Include="Data\schedule\1889SKED.TXT" />
+    <Content Include="Data\schedule\1890SKED.TXT" />
+    <Content Include="Data\schedule\1891SKED.TXT" />
+    <Content Include="Data\schedule\1892SKED.TXT" />
+    <Content Include="Data\schedule\1893SKED.TXT" />
+    <Content Include="Data\schedule\1894SKED.TXT" />
+    <Content Include="Data\schedule\1895SKED.TXT" />
+    <Content Include="Data\schedule\1896SKED.TXT" />
+    <Content Include="Data\schedule\1897SKED.TXT" />
+    <Content Include="Data\schedule\1898SKED.TXT" />
+    <Content Include="Data\schedule\1899SKED.TXT" />
+    <Content Include="Data\schedule\1900SKED.TXT" />
+    <Content Include="Data\schedule\1901SKED.TXT" />
+    <Content Include="Data\schedule\1902SKED.TXT" />
+    <Content Include="Data\schedule\1903SKED.TXT" />
+    <Content Include="Data\schedule\1904SKED.TXT" />
+    <Content Include="Data\schedule\1905SKED.TXT" />
+    <Content Include="Data\schedule\1906SKED.TXT" />
+    <Content Include="Data\schedule\1907SKED.TXT" />
+    <Content Include="Data\schedule\1908SKED.TXT" />
+    <Content Include="Data\schedule\1909SKED.TXT" />
+    <Content Include="Data\schedule\1910SKED.TXT" />
+    <Content Include="Data\schedule\1911SKED.TXT" />
+    <Content Include="Data\schedule\1912SKED.TXT" />
+    <Content Include="Data\schedule\1913SKED.TXT" />
+    <Content Include="Data\schedule\1914SKED.TXT" />
+    <Content Include="Data\schedule\1915SKED.TXT" />
+    <Content Include="Data\schedule\1916SKED.TXT" />
+    <Content Include="Data\schedule\1917SKED.TXT" />
+    <Content Include="Data\schedule\1918SKED.TXT" />
+    <Content Include="Data\schedule\1919SKED.TXT" />
+    <Content Include="Data\schedule\1920SKED.TXT" />
+    <Content Include="Data\schedule\1921SKED.TXT" />
+    <Content Include="Data\schedule\1922SKED.TXT" />
+    <Content Include="Data\schedule\1923SKED.TXT" />
+    <Content Include="Data\schedule\1924SKED.TXT" />
+    <Content Include="Data\schedule\1925SKED.TXT" />
+    <Content Include="Data\schedule\1926SKED.TXT" />
+    <Content Include="Data\schedule\1927SKED.TXT" />
+    <Content Include="Data\schedule\1928SKED.TXT" />
+    <Content Include="Data\schedule\1929SKED.TXT" />
+    <Content Include="Data\schedule\1930SKED.TXT" />
+    <Content Include="Data\schedule\1931SKED.TXT" />
+    <Content Include="Data\schedule\1932SKED.TXT" />
+    <Content Include="Data\schedule\1933SKED.TXT" />
+    <Content Include="Data\schedule\1934SKED.TXT" />
+    <Content Include="Data\schedule\1935SKED.TXT" />
+    <Content Include="Data\schedule\1936SKED.TXT" />
+    <Content Include="Data\schedule\1937SKED.TXT" />
+    <Content Include="Data\schedule\1938SKED.TXT" />
+    <Content Include="Data\schedule\1939SKED.TXT" />
+    <Content Include="Data\schedule\1940SKED.TXT" />
+    <Content Include="Data\schedule\1941SKED.TXT" />
+    <Content Include="Data\schedule\1942SKED.TXT" />
+    <Content Include="Data\schedule\1943SKED.TXT" />
+    <Content Include="Data\schedule\1944SKED.TXT" />
+    <Content Include="Data\schedule\1945SKED.TXT" />
+    <Content Include="Data\schedule\1946SKED.TXT" />
+    <Content Include="Data\schedule\1947SKED.TXT" />
+    <Content Include="Data\schedule\1948SKED.TXT" />
+    <Content Include="Data\schedule\1949SKED.TXT" />
+    <Content Include="Data\schedule\1950SKED.TXT" />
+    <Content Include="Data\schedule\1951SKED.TXT" />
+    <Content Include="Data\schedule\1952SKED.TXT" />
+    <Content Include="Data\schedule\1953SKED.TXT" />
+    <Content Include="Data\schedule\1954SKED.TXT" />
+    <Content Include="Data\schedule\1955SKED.TXT" />
+    <Content Include="Data\schedule\1956SKED.TXT" />
+    <Content Include="Data\schedule\1957SKED.TXT" />
+    <Content Include="Data\schedule\1958SKED.TXT" />
+    <Content Include="Data\schedule\1959SKED.TXT" />
+    <Content Include="Data\schedule\1960SKED.TXT" />
+    <Content Include="Data\schedule\1961SKED.TXT" />
+    <Content Include="Data\schedule\1962SKED.TXT" />
+    <Content Include="Data\schedule\1963SKED.TXT" />
+    <Content Include="Data\schedule\1964SKED.TXT" />
+    <Content Include="Data\schedule\1965SKED.TXT" />
+    <Content Include="Data\schedule\1966SKED.TXT" />
+    <Content Include="Data\schedule\1967SKED.TXT" />
+    <Content Include="Data\schedule\1968SKED.TXT" />
+    <Content Include="Data\schedule\1969SKED.TXT" />
+    <Content Include="Data\schedule\1970SKED.TXT" />
+    <Content Include="Data\schedule\1971SKED.TXT" />
+    <Content Include="Data\schedule\1972SKED.TXT" />
+    <Content Include="Data\schedule\1973SKED.TXT" />
+    <Content Include="Data\schedule\1974SKED.TXT" />
+    <Content Include="Data\schedule\1975SKED.TXT" />
+    <Content Include="Data\schedule\1976SKED.TXT" />
+    <Content Include="Data\schedule\1977SKED.TXT" />
+    <Content Include="Data\schedule\1978SKED.TXT" />
+    <Content Include="Data\schedule\1979SKED.TXT" />
+    <Content Include="Data\schedule\1980SKED.TXT" />
+    <Content Include="Data\schedule\1981SKED.TXT" />
+    <Content Include="Data\schedule\1982SKED.TXT" />
+    <Content Include="Data\schedule\1983SKED.TXT" />
+    <Content Include="Data\schedule\1984SKED.TXT" />
+    <Content Include="Data\schedule\1985SKED.TXT" />
+    <Content Include="Data\schedule\1986SKED.TXT" />
+    <Content Include="Data\schedule\1987SKED.TXT" />
+    <Content Include="Data\schedule\1988SKED.TXT" />
+    <Content Include="Data\schedule\1989SKED.TXT" />
+    <Content Include="Data\schedule\1990SKED.TXT" />
+    <Content Include="Data\schedule\1991SKED.TXT" />
+    <Content Include="Data\schedule\1992SKED.TXT" />
+    <Content Include="Data\schedule\1993SKED.TXT" />
+    <Content Include="Data\schedule\1994SKED.TXT" />
+    <Content Include="Data\schedule\1995SKED.TXT" />
+    <Content Include="Data\schedule\1996SKED.TXT" />
+    <Content Include="Data\schedule\1997SKED.TXT" />
+    <Content Include="Data\schedule\1998SKED.TXT" />
+    <Content Include="Data\schedule\1999SKED.TXT" />
+    <Content Include="Data\schedule\2000SKED.TXT" />
+    <Content Include="Data\schedule\2001SKED.TXT" />
+    <Content Include="Data\schedule\2002SKED.TXT" />
+    <Content Include="Data\schedule\2003SKED.TXT" />
+    <Content Include="Data\schedule\2004SKED.TXT" />
+    <Content Include="Data\schedule\2005SKED.TXT" />
+    <Content Include="Data\schedule\2006SKED.TXT" />
+    <Content Include="Data\schedule\2007SKED.TXT" />
+    <Content Include="Data\schedule\2008SKED.TXT" />
+    <Content Include="Data\schedule\2009SKED.TXT" />
+    <Content Include="Data\schedule\2010SKED.TXT" />
+    <Content Include="Data\schedule\2011SKED.TXT" />
+    <Content Include="Data\schedule\2012SKED.TXT" />
+    <Content Include="Data\schedule\2013SKED.TXT" />
+    <Content Include="Data\schedule\2014SKED.TXT" />
+    <Content Include="Data\schedule\2015SKED.TXT" />
+    <Content Include="Data\schedule\2016SKED.TXT" />
+    <Content Include="Data\schedule\2017SKED.TXT" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -122,15 +287,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BoxScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SchedulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\McKnight.StatTracker.Model\McKnight.StatTracker.Model.csproj">
+      <Project>{221b867a-b53f-492c-a922-1b0fbdaf1c5c}</Project>
+      <Name>McKnight.StatTracker.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\McKnight.StatTracker.Services\McKnight.StatTracker.Services.csproj">
+      <Project>{edf861c2-a9a5-4bef-8813-b9365b653e61}</Project>
+      <Name>McKnight.StatTracker.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

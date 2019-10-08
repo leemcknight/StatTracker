@@ -12,10 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using McKnight.StatTracker.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace StatTracker
+namespace McKnight.StatTracker
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -26,10 +27,23 @@ namespace StatTracker
         {
             this.InitializeComponent();
         }
+               
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void navMain_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            ArrayList<Player> players = new ArrayList<Player>();
+            switch(((NavigationViewItem)args.SelectedItem).Tag)
+            {
+                case "People":
+                    this.contentFrame.Navigate(typeof(PersonPage));
+                    break;
+                case "Schedules":
+                    this.contentFrame.Navigate(typeof(SchedulePage));
+                    break;
+                case "Teams":
+                    this.contentFrame.Navigate(typeof(TeamPage));
+                    break;
+            }
+            
         }
     }
 }
