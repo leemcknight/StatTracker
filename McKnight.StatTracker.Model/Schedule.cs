@@ -9,7 +9,7 @@ namespace McKnight.StatTracker.Model
     public class Schedule
     {
         public DateTime? Date { get; set; }
-        public string GameNumber { get; set; }
+        public int GameNumber { get; set; }
         public string DayOfWeek { get; set; }
         public string VisitingTeamId { get; set; }
         public string VisitingTeamLeague { get; set; }

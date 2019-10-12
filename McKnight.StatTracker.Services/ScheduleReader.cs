@@ -17,8 +17,8 @@ namespace McKnight.StatTracker.Services
             new Schedule
             {
                 Date = GetSafeDate(UnQuote(arr[0])),
-                GameNumber = arr[1],
-                DayOfWeek = arr[2],
+                GameNumber = int.Parse(UnQuote(arr[1])),
+                DayOfWeek = UnQuote(arr[2]),
                 VisitingTeamId = UnQuote(arr[3]),
                 VisitingTeamLeague = arr[4],
                 VisitingTeamSeasonGameNumber = int.Parse(arr[5]),

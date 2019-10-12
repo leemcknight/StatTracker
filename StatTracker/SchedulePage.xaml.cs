@@ -58,5 +58,17 @@ namespace McKnight.StatTracker
                 this.lvSchedule.ItemsSource = this.schedules;
             }
         }
+
+        private void btnBoxScore_Click(object sender, RoutedEventArgs e)
+        {
+            Schedule schedule = (Schedule)((Button)e.OriginalSource).Tag;
+            BoxScore boxScore = new BoxScoreReader()
+                .ForGameNumber(schedule.GameNumber)
+                .ForTeam(schedule.HomeTeamId)
+                .ForDate(schedule.Date.Value)
+                .Read()
+                .FirstOrDefault();
+            this.Frame.Navigate(typeof(BoxScorePage), boxScore);
+        }
     }
 }

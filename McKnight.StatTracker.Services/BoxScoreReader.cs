@@ -19,6 +19,7 @@ namespace McKnight.StatTracker.Services
             new BoxScore
             {
                 DateString = UnQuote(arr[0]),
+                Date = GetSafeDate(arr[0]),
                 GameNumber = int.Parse(UnQuote(arr[1])),
                 DayOfWeek = UnQuote(arr[2]),
                 VisitingTeamId = UnQuote(arr[3]),
@@ -28,15 +29,24 @@ namespace McKnight.StatTracker.Services
                 HomeTeamLeague = UnQuote(arr[7]),
                 HomeTeamGameNumber = int.Parse(UnQuote(arr[8])),
                 VisitingScore = int.Parse(arr[9]),
-                HomeScore = int.Parse(arr[10])
-
+                HomeScore = int.Parse(arr[10]),
+                TotalOuts = int.Parse(arr[11]),
+                DayNightIndicator = UnQuote(arr[12]),
+                CompletionInformation = UnQuote(arr[13]),
+                ForfeitInformation = UnQuote(arr[14]),
+                ProtestInformation = UnQuote(arr[15]),
+                ParkId = UnQuote(arr[16]),
+                Attendance = GetSafeInt(arr[17]),
+                TimeOfGame = int.Parse(arr[18]),
+                VisitingLineScore = UnQuote(arr[19]),
+                HomeLineScore = UnQuote(arr[20])                
             });
         }
 
-        public BoxScoreReader WithDate(DateTime date)
+        public BoxScoreReader ForDate(DateTime date)
         {
             this.date = date;
-            Path = "gamelogs/GL" + date.Year.ToString() + ".TXT";
+            Path = "Data/gamelogs/GL" + date.Year.ToString() + ".TXT";
             return this;
         }
 

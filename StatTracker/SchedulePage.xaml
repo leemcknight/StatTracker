@@ -20,8 +20,8 @@
                         <TextBlock Text=" vs. " />
                         <TextBlock Text="{x:Bind VisitingTeamId}" />
                         <TextBlock Text="{x:Bind Date}" />
-                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE102;" ToolTipService.ToolTip="Box Score"  />
-                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" ToolTipService.ToolTip="Plays" />
+                        <Button x:Name="btnBoxScore" FontFamily="Segoe MDL2 Assets" Content="&#xE102;" ToolTipService.ToolTip="Box Score" Click="btnBoxScore_Click" Tag="{x:Bind}"  />
+                        <Button x:Name="btnPlays" FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" ToolTipService.ToolTip="Plays" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

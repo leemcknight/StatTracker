@@ -11,6 +11,7 @@ namespace McKnight.StatTracker.Model
         private IList<string> visitingStartingPlayerIds = new List<string>();
 
         public string DateString { get; set; }
+        public DateTime? Date { get; set; }
         public int GameNumber { get; set; }
         public string DayOfWeek { get; set; }
         public string VisitingTeamId { get; set; }
@@ -23,10 +24,11 @@ namespace McKnight.StatTracker.Model
         public int HomeScore { get; set; }
         public int TotalOuts { get; set; }
         public string DayNightIndicator { get; set; }
+        public string CompletionInformation { get; set; }
         public string ForfeitInformation { get; set; }
         public string ProtestInformation { get; set; }
         public string ParkId { get; set; }
-        public int Attendance { get; set; }
+        public int? Attendance { get; set; }
         public int TimeOfGame { get; set; }
         public string VisitingLineScore { get; set; }
         public string HomeLineScore { get; set; }

@@ -29,6 +29,15 @@ namespace McKnight.StatTracker.Services
             return ok ? (DateTime?)date : null;                        
         }
 
+        protected int? GetSafeInt(string intString)
+        {
+            if(intString == null || intString.Trim().Length == 0)
+            {
+                return null;
+            }
+            return int.Parse(intString);
+        }
+
         protected string UnQuote(string quotedString)
         {
             return quotedString.Replace('"', ' ').Trim();            
