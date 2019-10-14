@@ -98,7 +98,6 @@
     <Compile Include="BoxScorePage.xaml.cs">
       <DependentUpon>BoxScorePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameLogLineParserBuilder.cs" />
     <Compile Include="GameLogParser.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -122,6 +121,66 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Data\franchises\CurrentNames.txt" />
+    <None Include="Data\play_by_play\2016\2016ANA.EVA" />
+    <None Include="Data\play_by_play\2016\2016ARI.EVN" />
+    <None Include="Data\play_by_play\2016\2016ATL.EVN" />
+    <None Include="Data\play_by_play\2016\2016BAL.EVA" />
+    <None Include="Data\play_by_play\2016\2016BOS.EVA" />
+    <None Include="Data\play_by_play\2016\2016CHA.EVA" />
+    <None Include="Data\play_by_play\2016\2016CHN.EVN" />
+    <None Include="Data\play_by_play\2016\2016CIN.EVN" />
+    <None Include="Data\play_by_play\2016\2016CLE.EVA" />
+    <None Include="Data\play_by_play\2016\2016COL.EVN" />
+    <None Include="Data\play_by_play\2016\2016DET.EVA" />
+    <None Include="Data\play_by_play\2016\2016HOU.EVA" />
+    <None Include="Data\play_by_play\2016\2016KCA.EVA" />
+    <None Include="Data\play_by_play\2016\2016LAN.EVN" />
+    <None Include="Data\play_by_play\2016\2016MIA.EVN" />
+    <None Include="Data\play_by_play\2016\2016MIL.EVN" />
+    <None Include="Data\play_by_play\2016\2016MIN.EVA" />
+    <None Include="Data\play_by_play\2016\2016NYA.EVA" />
+    <None Include="Data\play_by_play\2016\2016NYN.EVN" />
+    <None Include="Data\play_by_play\2016\2016OAK.EVA" />
+    <None Include="Data\play_by_play\2016\2016PHI.EVN" />
+    <None Include="Data\play_by_play\2016\2016PIT.EVN" />
+    <None Include="Data\play_by_play\2016\2016SDN.EVN" />
+    <None Include="Data\play_by_play\2016\2016SEA.EVA" />
+    <None Include="Data\play_by_play\2016\2016SFN.EVN" />
+    <None Include="Data\play_by_play\2016\2016SLN.EVN" />
+    <None Include="Data\play_by_play\2016\2016TBA.EVA" />
+    <None Include="Data\play_by_play\2016\2016TEX.EVA" />
+    <None Include="Data\play_by_play\2016\2016TOR.EVA" />
+    <None Include="Data\play_by_play\2016\2016WAS.EVN" />
+    <None Include="Data\play_by_play\2017\2017ANA.EVA" />
+    <None Include="Data\play_by_play\2017\2017ARI.EVN" />
+    <None Include="Data\play_by_play\2017\2017ATL.EVN" />
+    <None Include="Data\play_by_play\2017\2017BAL.EVA" />
+    <None Include="Data\play_by_play\2017\2017BOS.EVA" />
+    <None Include="Data\play_by_play\2017\2017CHA.EVA" />
+    <None Include="Data\play_by_play\2017\2017CHN.EVN" />
+    <None Include="Data\play_by_play\2017\2017CIN.EVN" />
+    <None Include="Data\play_by_play\2017\2017CLE.EVA" />
+    <None Include="Data\play_by_play\2017\2017COL.EVN" />
+    <None Include="Data\play_by_play\2017\2017DET.EVA" />
+    <None Include="Data\play_by_play\2017\2017HOU.EVA" />
+    <None Include="Data\play_by_play\2017\2017KCA.EVA" />
+    <None Include="Data\play_by_play\2017\2017LAN.EVN" />
+    <None Include="Data\play_by_play\2017\2017MIA.EVN" />
+    <None Include="Data\play_by_play\2017\2017MIL.EVN" />
+    <None Include="Data\play_by_play\2017\2017MIN.EVA" />
+    <None Include="Data\play_by_play\2017\2017NYA.EVA" />
+    <None Include="Data\play_by_play\2017\2017NYN.EVN" />
+    <None Include="Data\play_by_play\2017\2017OAK.EVA" />
+    <None Include="Data\play_by_play\2017\2017PHI.EVN" />
+    <None Include="Data\play_by_play\2017\2017PIT.EVN" />
+    <None Include="Data\play_by_play\2017\2017SDN.EVN" />
+    <None Include="Data\play_by_play\2017\2017SEA.EVA" />
+    <None Include="Data\play_by_play\2017\2017SFN.EVN" />
+    <None Include="Data\play_by_play\2017\2017SLN.EVN" />
+    <None Include="Data\play_by_play\2017\2017TBA.EVA" />
+    <None Include="Data\play_by_play\2017\2017TEX.EVA" />
+    <None Include="Data\play_by_play\2017\2017TOR.EVA" />
+    <None Include="Data\play_by_play\2017\2017WAS.EVN" />
     <None Include="StatTracker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

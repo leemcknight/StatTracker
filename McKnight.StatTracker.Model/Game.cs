@@ -10,8 +10,25 @@ namespace McKnight.StatTracker.Model
     {
         private IDictionary<string, string> metaData = new Dictionary<string, string>();
         private IList<AtBat> atBats = new List<AtBat>();
-        public string HomeTeam { get; set; }
-        public string VisitingTeam { get; set; }
+        public string HomeTeamId
+        {
+            get { return metaData["hometeam"]; }
+        }
+
+        public string VisitingTeamId
+        {
+            get
+            {
+                return metaData["visteam"];
+            }
+        }
+
+        public string HomePlateUmpire
+        {
+            get { return metaData["umphome"]; }
+        }
+
+
         public string Date { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }

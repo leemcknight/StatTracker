@@ -1,4 +1,5 @@
-﻿using System;
+﻿using McKnight.StatTracker.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,22 @@ namespace McKnight.StatTracker
     /// </summary>
     public sealed partial class PlayByPlayPage : Page
     {
+        private Game game;
         public PlayByPlayPage()
         {
             this.InitializeComponent();
+        }
+
+        public Game Game
+        {
+            get { return this.game; }
+            set { this.game = value; }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.Game = (Game)e.Parameter;
+            base.OnNavigatedTo(e);
         }
     }
 }

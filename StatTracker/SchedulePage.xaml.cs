@@ -67,8 +67,20 @@ namespace McKnight.StatTracker
                 .ForTeam(schedule.HomeTeamId)
                 .ForDate(schedule.Date.Value)
                 .Read()
+
                 .FirstOrDefault();
             this.Frame.Navigate(typeof(BoxScorePage), boxScore);
+        }
+
+        private void btnPlays_Click(object sender, RoutedEventArgs e)
+        {
+            Schedule schedule = (Schedule)((Button)e.OriginalSource).Tag;
+            Game game = new GameReader()
+                .ForGameNumber(schedule.GameNumber)
+                .ForHomeTeam(schedule.HomeTeamId, schedule.HomeTeamLeague.Substring(0,1))
+                .ForDate(schedule.Date.Value)
+                .Read();
+            this.Frame.Navigate(typeof(PlayByPlayPage), game);
         }
     }
 }

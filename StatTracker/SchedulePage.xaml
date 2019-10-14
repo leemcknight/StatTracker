@@ -9,10 +9,26 @@
     >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox x:Name="cboTeams" HorizontalAlignment="Left" Width="360" ItemsSource="{x:Bind Teams}" SelectedValuePath="Franchise" Margin="211,62,0,0" />
-        <ComboBox x:Name="cboYear" HorizontalAlignment="Left" Margin="695,68,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{x:Bind Years}"/>
-        <Button Content="Show Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click" Margin="919,69,0,0"/>
-        <ListView x:Name="lvSchedule" HorizontalAlignment="Stretch"  Margin="200,160,20,20" VerticalAlignment="Stretch"  ItemsSource="{x:Bind Schedules}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock Text="Team" />
+            <ComboBox x:Name="cboTeams" ItemsSource="{x:Bind Teams}" SelectedValuePath="Franchise" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+            <TextBlock Text="Year" />
+            <ComboBox x:Name="cboYear" ItemsSource="{x:Bind Years}"/>
+        </StackPanel>
+        
+        <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Show Schedule" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" />
+        <ListView Grid.Row="2" Grid.ColumnSpan="2" x:Name="lvSchedule" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{x:Bind Schedules}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Schedule">
                     <StackPanel Orientation="Horizontal">
@@ -21,7 +37,7 @@
                         <TextBlock Text="{x:Bind VisitingTeamId}" />
                         <TextBlock Text="{x:Bind Date}" />
                         <Button x:Name="btnBoxScore" FontFamily="Segoe MDL2 Assets" Content="&#xE102;" ToolTipService.ToolTip="Box Score" Click="btnBoxScore_Click" Tag="{x:Bind}"  />
-                        <Button x:Name="btnPlays" FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" ToolTipService.ToolTip="Plays" />
+                        <Button x:Name="btnPlays" FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" ToolTipService.ToolTip="Plays" Click="btnPlays_Click" Tag="{x:Bind}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
