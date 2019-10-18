@@ -109,6 +109,7 @@
     <Compile Include="AtBatReader.cs" />
     <Compile Include="BallparkReader.cs" />
     <Compile Include="BoxScoreReader.cs" />
+    <Compile Include="Context.cs" />
     <Compile Include="CsvReader.cs" />
     <Compile Include="FranchiseReader.cs" />
     <Compile Include="GameReader.cs" />

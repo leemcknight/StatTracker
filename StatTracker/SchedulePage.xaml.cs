@@ -80,7 +80,13 @@ namespace McKnight.StatTracker
                 .ForHomeTeam(schedule.HomeTeamId, schedule.HomeTeamLeague.Substring(0,1))
                 .ForDate(schedule.Date.Value)
                 .Read();
-            this.Frame.Navigate(typeof(PlayByPlayPage), game);
+            if (game != null)
+            {
+                this.Frame.Navigate(typeof(PlayByPlayPage), game);
+            } else
+            {
+                new ContentDialog { Title = "Error", Content = "Play by Play not found." }.ShowAsync();
+            }
         }
     }
 }

@@ -21,16 +21,45 @@ namespace McKnight.StatTracker.Services
             return atBat;
         }
 
-        private List<PitchType> ParsePitchString(string pitchString)
+        private List<Pitch> ParsePitchString(string pitchString)
         {
-            List<PitchType> pitches = new List<PitchType>();
-            foreach(char c in pitchString)
+
+            List<Pitch> pitches = new List<Pitch>();
+            foreach (char c in pitchString)
             {
-                string name = Enum.GetName(typeof(PitchType), c);
-                PitchType pitch = (PitchType)Enum.Parse(typeof(PitchType), name);
-                pitches.Add(pitch);
+                string name = Enum.GetName(typeof(PitchResult), c);
+                Pitch pitch = null;
+                if (null != name)
+                {
+                    if(pitch == null)
+                    {
+                        pitch = new Pitch();
+                    }
+                    pitch.PitchResult = (PitchResult)Enum.Parse(typeof(PitchResult), name);
+                    pitches.Add(pitch);
+                    pitch = null;
+                }
+                else
+                {
+                    name = Enum.GetName(typeof(AfterPitchEvent), c);
+                    pitch = new Pitch();
+                    pitch.AfterPitchEvent = (AfterPitchEvent)Enum.Parse(typeof(AfterPitchEvent), name);
+                }
+                
             }
             return pitches;
+        }
+
+        private Play ParsePlay(string playString)
+        {
+            string[] modifierParts = playString.Split('/');
+            string playDescription = modifierParts[0];  //first part
+            string modifierString = playString.Substring(playString.IndexOf('/') + 1, playString.IndexOf('.') - playString.IndexOf('/'));
+            string[] modifiers = modifierString.Split('/');
+
+            //separate the second and third parts (modifiers from advances)
+            string baseAdvanceString = playString.Substring(playString.IndexOf('.') + 1);
+            return new Play();
         }
     }
 }

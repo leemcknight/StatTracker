@@ -1,10 +1,10 @@
 ﻿<Page
     x:Class="McKnight.StatTracker.PlayByPlayPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:McKnight.StatTracker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:McKnight.StatTracker.Model"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -16,15 +16,70 @@
             <RowDefinition />
             <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <ListView ItemsSource="{x:Bind Game.AtBats}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:AtBat">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{x:Bind BatterId}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Grid.Row="0">
             <TextBlock Text="{x:Bind Game.HomeTeamId}" />
             <TextBlock Text="{x:Bind Game.VisitingTeamId}" />
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ballpark:" />
+                <TextBlock Text="{x:Bind Game.BallparkId}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Sky:" />
+                <TextBlock Text="{x:Bind Game.Sky}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Wind:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind Game.WindDirection}" />
+                    <TextBlock Text="/" />
+                    <TextBlock Text="{x:Bind Game.WindSpeed}" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Temp:" />
+                <TextBlock Text="{x:Bind Game.Temperature}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Precipitation:" />
+                <TextBlock Text="{x:Bind Game.Precipitation}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Attendance:" />
+                <TextBlock Text="{x:Bind Game.Attendance}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Field Conditions:" />
+                <TextBlock Text="{x:Bind Game.FieldConditions}" />
+            </StackPanel>
             <TextBlock Text="Umpires:" />
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Home:" />
-                <TextBlock Text="{x:Bind Game.HomePlateUmpire}" />
+                <TextBlock Text="{x:Bind Game.HomePlateUmpireId}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="1st base:" />
+                <TextBlock Text="{x:Bind Game.FirstBaseUmpireId}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="2nd base:" />
+                <TextBlock Text="{x:Bind Game.SecondBaseUmpireId}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="3rd base:" />
+                <TextBlock Text="{x:Bind Game.ThirdBaseUmpireId}" />
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace McKnight.StatTracker.Model
 {
-    public enum PitchType
+    public enum PitchResult
     {
         Ball = 'B',
         CalledStrike = 'C',
@@ -27,5 +27,17 @@ namespace McKnight.StatTracker.Model
         CalledBall = 'V',
         InPlayByBatter = 'X',
         InPlayByPitchout = 'Y'
+    }
+
+    public enum AfterPitchEvent
+    {
+        None = 0,
+        FollowingPickoffAttempt = '+',
+        BlockedByCatcher = '*',
+        PlayNotInvolvingBatter = '.',
+        PickoffToFirst = '1',
+        PickoffToSecond = '2',
+        PickoffToThird = '3',
+        RunnerGoingOnPitch = '>'
     }
 }

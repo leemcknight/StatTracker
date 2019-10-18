@@ -63,23 +63,7 @@ UREV  umpire review of call on the field
         private List<string> baseAdvances = new List<string>();        
         private string baseAdvanceString;
         private string playDescription;
-
-        public static Play create(string playString)
-        {
-            Play play = new Play();
-            play.playString = playString;
-
-            string[] modifierParts = playString.Split('/');
-            play.playDescription = modifierParts[0];  //first part
-            string modifierString = playString.Substring(playString.IndexOf('/') + 1, playString.IndexOf('.') - playString.IndexOf('/'));
-            play.modifiers = modifierString.Split('/').ToList<string>();
-
-            //separate the second and third parts (modifiers from advances)
-            play.baseAdvanceString = playString.Substring(playString.IndexOf('.') + 1);
-            return play;
-        }
-
-
+        
         public List<string> Modifiers  {
             get { return modifiers;  }
         }

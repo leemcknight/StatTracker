@@ -36,10 +36,10 @@ namespace McKnight.StatTracker.Services
         
         public Game Read()
         {
-            Game game = new Game();
+            Game game = null;
             string file = date.Year.ToString() + teamId + ".EV" + teamLeague;
             string gameId = teamId + this.date.ToString("yyyyMMdd") + gameNumber.ToString();
-            IEnumerable<string> lines = File.ReadLines("Data/play_by_play/" + date.Year.ToString() + "/" + file);
+            IEnumerable<string> lines = File.ReadLines("Data/play_by_play/" + date.Year.ToString() + "/" + file);            
             bool found = false;
             foreach(string line in lines)
             {
@@ -48,8 +48,8 @@ namespace McKnight.StatTracker.Services
                 {
                     switch(arr[0])
                     {
-                        case "id":                            
-                            break;
+                        case "id":
+                            return game;                                                       
                         case "version":
                             break;
                         case "info":
@@ -72,14 +72,15 @@ namespace McKnight.StatTracker.Services
                             break;
                         case "com":
                             break;
-                    }
+                    }                    
                 } else
                 {
-                    if(arr[0].Equals("id") && arr[2].Equals(gameId))
+                    if(arr[0] == "id" && arr[1] == gameId)
                     {
                         found = true;
+                        game = new Game();
                     }
-                }
+                } 
             }
 
             

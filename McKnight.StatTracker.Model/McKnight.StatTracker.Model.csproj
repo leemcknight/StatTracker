@@ -112,6 +112,7 @@
     <Compile Include="Franchise.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="Pitch.cs" />
     <Compile Include="PitchType.cs" />
     <Compile Include="Play.cs" />
     <Compile Include="Player.cs" />
