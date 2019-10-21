@@ -20,8 +20,20 @@
             <ListView ItemsSource="{x:Bind Game.AtBats}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:AtBat">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{x:Bind BatterId}" />
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Batter: " />
+                                <TextBlock Text="{x:Bind BatterId}" />
+                            </StackPanel>
+                            <StackPanel>
+                                <ListView ItemsSource="{x:Bind Pitches}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate x:DataType="model:Pitch">
+                                            <TextBlock Text="{x:Bind Description}" />
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
