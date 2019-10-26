@@ -25,6 +25,10 @@
                                 <TextBlock Text="Batter: " />
                                 <TextBlock Text="{x:Bind BatterId}" />
                             </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{x:Bind Play.PlayDescription}" />
+                                <TextBlock Text="{x:Bind Play.BaseAdvanceString}" />
+                            </StackPanel>
                             <StackPanel>
                                 <ListView ItemsSource="{x:Bind Pitches}">
                                     <ListView.ItemTemplate>

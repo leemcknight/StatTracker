@@ -71,5 +71,12 @@ UREV  umpire review of call on the field
         public List<string> BaseAdvances {
             get { return baseAdvances;  }
         }
+
+        public string PlayDescription
+        {
+            get; set;
+        }
+
+        public string BaseAdvanceString { get; set; }
     }
 }

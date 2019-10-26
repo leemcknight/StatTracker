@@ -18,6 +18,7 @@ namespace McKnight.StatTracker.Services
             atBat.BatterId = arr[3];
             atBat.FinalCount = arr[4];
             atBat.Pitches = ParsePitchString(arr[5]);
+            atBat.Play = ParsePlay(arr[6]);
             return atBat;
         }
 
@@ -52,14 +53,18 @@ namespace McKnight.StatTracker.Services
 
         private Play ParsePlay(string playString)
         {
-            string[] modifierParts = playString.Split('/');
-            string playDescription = modifierParts[0];  //first part
-            string modifierString = playString.Substring(playString.IndexOf('/') + 1, playString.IndexOf('.') - playString.IndexOf('/'));
-            string[] modifiers = modifierString.Split('/');
-
-            //separate the second and third parts (modifiers from advances)
-            string baseAdvanceString = playString.Substring(playString.IndexOf('.') + 1);
-            return new Play();
+            string[] rightTwo = playString.Split('.');
+            string baseAdvanceString = rightTwo.Length > 1 ? rightTwo[1] : "";
+            string[] modifierParts = rightTwo[0].Split('/');
+            string playDescription = modifierParts[0];  //first part                                                
+            Play play = new Play();
+            play.PlayDescription = playDescription;
+            play.BaseAdvanceString = baseAdvanceString;
+            for(int i = 1; i < modifierParts.Length; i++)
+            {
+                play.Modifiers.Add(modifierParts[i]);
+            }
+            return play;
         }
     }
 }
