@@ -20,8 +20,8 @@ namespace McKnight.StatTracker.Services
                 Location = arr[4],
                 Nickname = arr[5],
                 AlternateNicknames = arr[6],
-                FirstGame = GetSafeDate(UnQuote(arr[7])),
-                LastGame = GetSafeDate(arr[8]),
+                FirstGame = DateTime.Parse(arr[7]),
+                LastGame = string.IsNullOrEmpty(arr[8].Trim()) ? DateTime.MaxValue : DateTime.Parse(arr[8]),
                 City = arr[9],
                 State = arr[10]                
             });

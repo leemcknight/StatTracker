@@ -13,8 +13,8 @@ namespace McKnight.StatTracker.Model
         public string Alias { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public string League { get; set; }
         public string Notes { get; set; }
 

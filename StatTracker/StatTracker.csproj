@@ -120,6 +120,9 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Data\franchises\CurrentNames.txt" />
+    <Content Include="Data\lookups\play_descriptions.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\play_by_play\2016\2016ANA.EVA" />
     <Content Include="Data\play_by_play\2016\2016ARI.EVN" />
     <Content Include="Data\play_by_play\2016\2016ATL.EVN" />
@@ -180,6 +183,10 @@
     <Content Include="Data\play_by_play\2017\2017TEX.EVA" />
     <Content Include="Data\play_by_play\2017\2017TOR.EVA" />
     <Content Include="Data\play_by_play\2017\2017WAS.EVN" />
+    <Content Include="Data\lookups\modifiers.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Data\lookups\field_locations.csv" />
     <None Include="StatTracker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

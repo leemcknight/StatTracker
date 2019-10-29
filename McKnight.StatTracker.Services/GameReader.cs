@@ -37,6 +37,7 @@ namespace McKnight.StatTracker.Services
         public Game Read()
         {
             Game game = null;
+            Context context = Context.Instance;
             string file = date.Year.ToString() + teamId + ".EV" + teamLeague;
             string gameId = teamId + this.date.ToString("yyyyMMdd") + gameNumber.ToString();
             IEnumerable<string> lines = File.ReadLines("Data/play_by_play/" + date.Year.ToString() + "/" + file);            
@@ -48,7 +49,18 @@ namespace McKnight.StatTracker.Services
                 {
                     switch(arr[0])
                     {
-                        case "id":
+                        case "id":                            
+                            game.Ballpark = context.Ballparks.Where(ballpark => ballpark.BallparkId == game.BallparkId).FirstOrDefault();
+                            game.HomeTeam = context.Franchises
+                                .Where(team => team.FranchiseId == game.HomeTeamId)
+                                .Where(team => game.Date >= team.FirstGame)
+                                .Where(team => game.Date <= team.LastGame)
+                                .FirstOrDefault();
+                            game.VisitingTeam = context.Franchises
+                                .Where(team => team.FranchiseId == game.VisitingTeamId)
+                                .Where(team => game.Date.Value >= team.FirstGame.Value)
+                                .Where(team => game.Date.Value <= team.LastGame.Value)
+                                .FirstOrDefault();
                             return game;                                                       
                         case "version":
                             break;
@@ -79,12 +91,21 @@ namespace McKnight.StatTracker.Services
                     {
                         found = true;
                         game = new Game();
+                        game.Date = date;
                     }
                 } 
             }
-
-            
-
+            game.Ballpark = context.Ballparks.Where(ballpark => ballpark.BallparkId == game.BallparkId).FirstOrDefault();
+            game.HomeTeam = context.Franchises
+                .Where(team => team.FranchiseId == game.HomeTeamId)
+                .Where(team => game.Date >= team.FirstGame)                
+                .Where(team => game.Date <= team.LastGame)
+                .FirstOrDefault();
+            game.VisitingTeam = context.Franchises
+                .Where(team => team.FranchiseId == game.VisitingTeamId)
+                .Where(team => game.Date >= team.FirstGame)
+                .Where(team => game.Date <= team.LastGame)
+                .FirstOrDefault();
             return game;
         }
         

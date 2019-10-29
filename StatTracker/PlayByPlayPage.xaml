@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -22,15 +22,17 @@
                     <DataTemplate x:DataType="model:AtBat">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Batter: " />
-                                <TextBlock Text="{x:Bind BatterId}" />
+                                <TextBlock Text="{x:Bind Batter.FirstName}" />
+                                <TextBlock xml:space="preserve" Text=" " />
+                                <TextBlock Text="{x:Bind Batter.LastName}" />
+                                <TextBlock Text="{x:Bind Description}" />
                             </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{x:Bind Play.PlayDescription}" />
-                                <TextBlock Text="{x:Bind Play.BaseAdvanceString}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="{x:Bind Play.PlayDescription}" />
                             </StackPanel>
+
                             <StackPanel>
-                                <ListView ItemsSource="{x:Bind Pitches}">
+                                <ListView ItemsSource="{x:Bind Pitches}" Visibility="Collapsed">
                                     <ListView.ItemTemplate>
                                         <DataTemplate x:DataType="model:Pitch">
                                             <TextBlock Text="{x:Bind Description}" />
@@ -43,21 +45,27 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="{x:Bind Game.HomeTeamId}" />
-            <TextBlock Text="{x:Bind Game.VisitingTeamId}" />
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{x:Bind Game.HomeTeam.Nickname}" />
+                <TextBlock xml:space="preserve" Text=" vs. " />
+                <TextBlock Text="{x:Bind Game.VisitingTeam.Nickname}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{x:Bind Game.Date}" />
+            </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Ballpark:" />
-                <TextBlock Text="{x:Bind Game.BallparkId}" />
+                <TextBlock Text="Ballpark: " />
+                <TextBlock Text="{x:Bind Game.Ballpark.Name}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Sky:" />
+                <TextBlock Text="Sky: " />
                 <TextBlock Text="{x:Bind Game.Sky}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Wind:" />
+                <TextBlock Text="Wind:&#160;" />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{x:Bind Game.WindDirection}" />
                     <TextBlock Text="/" />
@@ -65,36 +73,36 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Temp:" />
+                <TextBlock Text="Temp:&#160;" />
                 <TextBlock Text="{x:Bind Game.Temperature}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Precipitation:" />
+                <TextBlock Text="Precipitation:&#160;" />
                 <TextBlock Text="{x:Bind Game.Precipitation}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Attendance:" />
+                <TextBlock Text="Attendance:&#160;" />
                 <TextBlock Text="{x:Bind Game.Attendance}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Field Conditions:" />
+                <TextBlock Text="Field Conditions:&#160;" />
                 <TextBlock Text="{x:Bind Game.FieldConditions}" />
             </StackPanel>
-            <TextBlock Text="Umpires:" />
+            <TextBlock Text="Umpires: " />
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Home:" />
+                <TextBlock xml:space="preserve" Text="Home:" />
                 <TextBlock Text="{x:Bind Game.HomePlateUmpireId}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="1st base:" />
+                <TextBlock xml:space="preserve" Text="1st base: " />
                 <TextBlock Text="{x:Bind Game.FirstBaseUmpireId}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="2nd base:" />
+                <TextBlock xml:space="preserve" Text="2nd base: " />
                 <TextBlock Text="{x:Bind Game.SecondBaseUmpireId}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="3rd base:" />
+                <TextBlock xml:space="preserve" Text="3rd base: " />
                 <TextBlock Text="{x:Bind Game.ThirdBaseUmpireId}" />
             </StackPanel>
         </StackPanel>

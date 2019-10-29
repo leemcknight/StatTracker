@@ -113,7 +113,9 @@
     <Compile Include="CsvReader.cs" />
     <Compile Include="FranchiseReader.cs" />
     <Compile Include="GameReader.cs" />
+    <Compile Include="ModifierReader.cs" />
     <Compile Include="PersonReader.cs" />
+    <Compile Include="PlayDescriptionReader.cs" />
     <Compile Include="PlayReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleReader.cs" />

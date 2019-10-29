@@ -15,6 +15,8 @@ namespace McKnight.StatTracker.Model
             get { return metaData["hometeam"]; }
         }
 
+        public Franchise HomeTeam { get; set; }
+
         public string VisitingTeamId
         {
             get
@@ -22,6 +24,8 @@ namespace McKnight.StatTracker.Model
                 return metaData["visteam"];
             }
         }
+
+        public Franchise VisitingTeam { get; set; }
 
         public string HomePlateUmpireId
         {
@@ -88,7 +92,9 @@ namespace McKnight.StatTracker.Model
             get { return metaData["site"];  }
         }
 
-        public string Date { get; set; }
+        public Ballpark Ballpark { get; set; }        
+
+        public DateTime? Date { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public bool UseDH { get; set; }        

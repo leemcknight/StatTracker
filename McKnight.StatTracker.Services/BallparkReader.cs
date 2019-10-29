@@ -13,13 +13,13 @@ namespace McKnight.StatTracker.Services
         {
             TransformFunc = (arr => new Ballpark
             {
-                BallparkId = arr[0],
+                BallparkId = UnQuote(arr[0]),
                 Name = arr[1],
                 Alias = arr[2],
                 City = arr[3],
                 State = arr[4],
-                StartDate = DateTime.Parse(arr[5]),
-                EndDate = DateTime.Parse(arr[6]),
+                StartDate = GetSafeDate(arr[5]),
+                EndDate = GetSafeDate(arr[6]),
                 League = arr[5],
                 Notes = arr[6]
             });
