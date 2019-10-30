@@ -32,9 +32,16 @@ namespace McKnight.StatTracker.Model
             get { return metaData["umphome"]; }
         }
 
+        public Person HomePlateUmpire { get; set; }
+
         public string FirstBaseUmpireId
         {
             get { return metaData["ump1b"]; }
+        }
+
+        public Person FirstBaseUmpire
+        {
+            get; set;
         }
 
         public string SecondBaseUmpireId
@@ -42,11 +49,14 @@ namespace McKnight.StatTracker.Model
             get { return metaData["ump2b"]; }
         }
 
+        public Person SecondBaseUmpire { get; set; }
+
         public string ThirdBaseUmpireId
         {
             get { return metaData["ump3b"]; }
         }
 
+        public Person ThirdBaseUmpire { get; set; }
         public string FieldConditions
         {
             get { return metaData["fieldcond"]; }

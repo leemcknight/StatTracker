@@ -186,7 +186,9 @@
     <Content Include="Data\lookups\modifiers.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Data\lookups\field_locations.csv" />
+    <Content Include="Data\lookups\field_locations.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="StatTracker_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

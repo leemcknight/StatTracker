@@ -9,7 +9,7 @@ namespace McKnight.StatTracker.Model
     public class FieldLocation
     {
         public string LocationCode { get; set; }
-        public string LocationText { get; set; }
+        public string LocationText { get; set; }        
         
     }
 }

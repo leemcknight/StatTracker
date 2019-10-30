@@ -49,8 +49,8 @@ namespace McKnight.StatTracker.Services
                 {
                     switch(arr[0])
                     {
-                        case "id":                            
-                            game.Ballpark = context.Ballparks.Where(ballpark => ballpark.BallparkId == game.BallparkId).FirstOrDefault();
+                        case "id":
+                            game.Ballpark = context.Ballparks[game.BallparkId];
                             game.HomeTeam = context.Franchises
                                 .Where(team => team.FranchiseId == game.HomeTeamId)
                                 .Where(team => game.Date >= team.FirstGame)
@@ -61,6 +61,10 @@ namespace McKnight.StatTracker.Services
                                 .Where(team => game.Date.Value >= team.FirstGame.Value)
                                 .Where(team => game.Date.Value <= team.LastGame.Value)
                                 .FirstOrDefault();
+                            game.HomePlateUmpire = context.People[game.HomePlateUmpireId];
+                            game.FirstBaseUmpire = context.People[game.FirstBaseUmpireId];
+                            game.SecondBaseUmpire = context.People[game.SecondBaseUmpireId];
+                            game.ThirdBaseUmpire = context.People[game.ThirdBaseUmpireId];
                             return game;                                                       
                         case "version":
                             break;
@@ -95,7 +99,7 @@ namespace McKnight.StatTracker.Services
                     }
                 } 
             }
-            game.Ballpark = context.Ballparks.Where(ballpark => ballpark.BallparkId == game.BallparkId).FirstOrDefault();
+            game.Ballpark = context.Ballparks[game.BallparkId];            
             game.HomeTeam = context.Franchises
                 .Where(team => team.FranchiseId == game.HomeTeamId)
                 .Where(team => game.Date >= team.FirstGame)                
@@ -106,6 +110,10 @@ namespace McKnight.StatTracker.Services
                 .Where(team => game.Date >= team.FirstGame)
                 .Where(team => game.Date <= team.LastGame)
                 .FirstOrDefault();
+            game.HomePlateUmpire = context.People[game.HomePlateUmpireId];
+            game.FirstBaseUmpire = context.People[game.FirstBaseUmpireId];
+            game.SecondBaseUmpire = context.People[game.SecondBaseUmpireId];
+            game.ThirdBaseUmpire = context.People[game.ThirdBaseUmpireId];
             return game;
         }
         

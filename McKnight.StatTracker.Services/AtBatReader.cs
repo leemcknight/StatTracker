@@ -86,15 +86,44 @@ namespace McKnight.StatTracker.Services
 
         private string GetPlayDescription(string descriptionString, IList<PlayModifier> modifiers)
         {
-            if (Context.Instance.PlayDescriptions.ContainsKey(descriptionString))
+            Context context = Context.Instance;
+            if (context.PlayDescriptions.ContainsKey(descriptionString))
             {
-                return Context.Instance.PlayDescriptions[descriptionString];
-            } else
+                //straight lookup.  map it and shortcut return.
+                return context.PlayDescriptions[descriptionString];
+            } 
+            else
             {
                 if(descriptionString.All(ch => Char.IsDigit(ch)))
                 {
                     //ground out involving multiple players
-                    return "grounds out, ";
+                    string sequence = "";
+                    foreach(char loc in descriptionString)
+                    {                        
+                        sequence += GetLocationText(loc.ToString()) + " ";
+                        
+                    }
+                    return "grounds out, " + sequence;
+                } 
+                else if(descriptionString.StartsWith("SB"))
+                {
+                    //stolen base
+                    return "runner steals " + GetLocationText(descriptionString.Substring(2, 1));                        
+                }
+                else if(descriptionString.StartsWith("S"))
+                {
+                    //single
+                    return "singles to " + GetLocationText(descriptionString.Substring(1, 1));                        
+                } 
+                else if(descriptionString.StartsWith("D"))
+                {
+                    //double
+                    return "doubles to " + GetLocationText(descriptionString.Substring(1, 1));                        
+                }
+                else if(descriptionString.StartsWith("T"))
+                {
+                    //triple
+                    return "triples to " + GetLocationText(descriptionString.Substring(1, 1));                        
                 }
 
                 if(descriptionString.StartsWith("SF"))
@@ -104,6 +133,12 @@ namespace McKnight.StatTracker.Services
                 }
                 return descriptionString;
             }
+        }
+
+        private string GetLocationText(string locationCode)
+        {
+            var locs = Context.Instance.FieldLocations.Where(loc => loc.LocationCode == locationCode);
+            return locs.FirstOrDefault().LocationText;
         }
 
         private PlayModifier BuildPlayModifier(string modifierString)

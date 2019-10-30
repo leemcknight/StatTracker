@@ -9,11 +9,12 @@ namespace McKnight.StatTracker.Services
 {
     public class Context
     {
-        IEnumerable<Person> people;
+        KeyedList<Person> people;
         IEnumerable<Franchise> franchises;
-        IEnumerable<Ballpark> ballparks;
+        KeyedList<Ballpark> ballparks;
         IEnumerable<PlayModifier> playModifiers;
         IDictionary<string, string> playDescriptions;
+        IEnumerable<FieldLocation> fieldLocations;
 
         private static Context instance;
         public static Context Instance
@@ -28,13 +29,15 @@ namespace McKnight.StatTracker.Services
             }
         }
 
-        public IEnumerable<Person> People
+        public KeyedList<Person> People
         {
             get
             {
                 if (people == null)
                 {
-                    people = new PersonReader().Read();                    
+                    people = new KeyedList<Person>(
+                        new PersonReader().Read()
+                        .ToDictionary(person => person.PersonId, person => person));
                 }
 
                 return people;
@@ -53,13 +56,15 @@ namespace McKnight.StatTracker.Services
             }            
         }
 
-        public IEnumerable<Ballpark> Ballparks
+        public KeyedList<Ballpark> Ballparks
         {
             get
             {
                 if(ballparks == null)
                 {
-                    ballparks = new BallparkReader().Read();
+                    ballparks = new KeyedList<Ballpark>(new BallparkReader()
+                        .Read()
+                        .ToDictionary(park => park.BallparkId, park => park));
                 }
                 return ballparks;
             }
@@ -90,6 +95,19 @@ namespace McKnight.StatTracker.Services
                 return playDescriptions;
             }
         }
+
+        public IEnumerable<FieldLocation> FieldLocations
+        {
+            get
+            {
+                if(fieldLocations == null)
+                {
+                    fieldLocations = new FieldLocationReader().Read();                        
+                }
+                return fieldLocations;
+            }
+        }
+        
 
     }
 }

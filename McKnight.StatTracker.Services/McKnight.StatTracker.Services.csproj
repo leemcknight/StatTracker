@@ -111,8 +111,10 @@
     <Compile Include="BoxScoreReader.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="CsvReader.cs" />
+    <Compile Include="FieldLocationReader.cs" />
     <Compile Include="FranchiseReader.cs" />
     <Compile Include="GameReader.cs" />
+    <Compile Include="KeyedList.cs" />
     <Compile Include="ModifierReader.cs" />
     <Compile Include="PersonReader.cs" />
     <Compile Include="PlayDescriptionReader.cs" />

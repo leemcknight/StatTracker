@@ -28,7 +28,12 @@
                                 <TextBlock Text="{x:Bind Description}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="{x:Bind Play.PlayDescription}" />
+                                <ToggleButton>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{x:Bind Play.PlayDescription}" />
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70D;" />
+                                    </StackPanel>
+                                </ToggleButton>
                             </StackPanel>
 
                             <StackPanel>
@@ -91,19 +96,35 @@
             <TextBlock Text="Umpires: " />
             <StackPanel Orientation="Horizontal">
                 <TextBlock xml:space="preserve" Text="Home:" />
-                <TextBlock Text="{x:Bind Game.HomePlateUmpireId}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind Game.HomePlateUmpire.FirstName}" />
+                    <TextBlock xml:space="preserve" Text=" " />
+                    <TextBlock Text="{x:Bind Game.HomePlateUmpire.LastName}" />
+                </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock xml:space="preserve" Text="1st base: " />
-                <TextBlock Text="{x:Bind Game.FirstBaseUmpireId}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind Game.FirstBaseUmpire.FirstName}" />
+                    <TextBlock xml:space="preserve" Text=" " />
+                    <TextBlock Text="{x:Bind Game.FirstBaseUmpire.LastName}" />
+                </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock xml:space="preserve" Text="2nd base: " />
-                <TextBlock Text="{x:Bind Game.SecondBaseUmpireId}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind Game.SecondBaseUmpire.FirstName}" />
+                    <TextBlock xml:space="preserve" Text=" " />
+                    <TextBlock Text="{x:Bind Game.SecondBaseUmpire.LastName}" />
+                </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock xml:space="preserve" Text="3rd base: " />
-                <TextBlock Text="{x:Bind Game.ThirdBaseUmpireId}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind Game.ThirdBaseUmpire.FirstName}" />
+                    <TextBlock xml:space="preserve" Text=" " />
+                    <TextBlock Text="{x:Bind Game.ThirdBaseUmpire.LastName}" />
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
