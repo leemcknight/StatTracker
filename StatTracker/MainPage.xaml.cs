@@ -26,6 +26,7 @@ namespace McKnight.StatTracker
         public MainPage()
         {
             this.InitializeComponent();
+            this.contentFrame.Navigate(typeof(SchedulePage));
         }
                
 

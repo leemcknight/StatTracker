@@ -98,9 +98,11 @@
     <Compile Include="BoxScorePage.xaml.cs">
       <DependentUpon>BoxScorePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DateFormatConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PersonNameConverter.cs" />
     <Compile Include="PersonPage.xaml.cs">
       <DependentUpon>PersonPage.xaml</DependentUpon>
     </Compile>

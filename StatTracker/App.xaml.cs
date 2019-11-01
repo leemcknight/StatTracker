@@ -33,7 +33,7 @@ namespace McKnight.StatTracker
             //The runner on 2nd scored (advanced to home), and the runner on first advanced to third.
             //Play play = Play.create("S9/L9S.2-H;1-3");
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            this.Suspending += OnSuspending;            
         }
 
         /// <summary>

@@ -9,7 +9,15 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="lvPeople" ItemsSource="People" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="Search" />
+            <TextBox TextChanged="TextBox_TextChanged" />
+        </StackPanel>
+        <ListView x:Name="lvPeople" ItemsSource="People" HorizontalAlignment="Right" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Person">
                     <StackPanel Orientation="Horizontal">

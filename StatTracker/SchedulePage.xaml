@@ -10,35 +10,47 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="100" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-            <TextBlock Text="Team" />
-            <ComboBox x:Name="cboTeams" ItemsSource="{x:Bind Teams}" SelectedValuePath="Franchise" />
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-            <TextBlock Text="Year" />
-            <ComboBox x:Name="cboYear" ItemsSource="{x:Bind Years}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="75,30,0,0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Team: " />
+                <ComboBox x:Name="cboTeams" ItemsSource="{x:Bind Teams}" SelectedValuePath="Franchise" VerticalContentAlignment="Center" Margin="30,0,50,0" Width="300" />
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock Text="Year:" />
+                <ComboBox x:Name="cboYear" ItemsSource="{x:Bind Years}" Margin="30,0,0,0" Width="200"/>
+                <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Show Schedule" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Margin="30,0,0,0" />
+            </StackPanel>
         </StackPanel>
         
-        <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Show Schedule" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" />
-        <ListView Grid.Row="2" Grid.ColumnSpan="2" x:Name="lvSchedule" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{x:Bind Schedules}">
+        <ListView Grid.Row="2" Grid.ColumnSpan="2" x:Name="lvSchedule" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{x:Bind Schedules}" Margin="30,30,30,30" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Schedule">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind HomeTeamId}" />
-                        <TextBlock Text=" vs. " />
-                        <TextBlock Text="{x:Bind VisitingTeamId}" />
-                        <TextBlock Text="{x:Bind Date}" />
-                        <Button x:Name="btnBoxScore" FontFamily="Segoe MDL2 Assets" Content="&#xE102;" ToolTipService.ToolTip="Box Score" Click="btnBoxScore_Click" Tag="{x:Bind}"  />
-                        <Button x:Name="btnPlays" FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" ToolTipService.ToolTip="Plays" Click="btnPlays_Click" Tag="{x:Bind}" />
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition Width="300" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Bind Date, Converter={StaticResource DateToString} }" Grid.Column="0" Grid.Row="0" />
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                            <TextBlock Text="{x:Bind HomeTeam.Nickname}" />
+                            <TextBlock Text=" vs. " />
+                            <TextBlock Text="{x:Bind VisitingTeam.Nickname}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                            <Button x:Name="btnBoxScore" FontFamily="Segoe MDL2 Assets" Content="&#xE102;" ToolTipService.ToolTip="Box Score" Click="btnBoxScore_Click" Tag="{x:Bind}" HorizontalAlignment="Right" />
+                            <Button x:Name="btnPlays" FontFamily="Segoe MDL2 Assets" Content="&#xE8FD;" ToolTipService.ToolTip="Plays" Click="btnPlays_Click" Tag="{x:Bind}" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

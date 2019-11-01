@@ -2,6 +2,11 @@
     x:Class="McKnight.StatTracker.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    RequestedTheme="Light">
-
+    xmlns:local="using:McKnight.StatTracker">
+    <Application.Resources>
+        <ResourceDictionary>
+            <local:DateFormatConverter x:Key="DateToString"/>
+            <local:PersonNameConverter x:Key="PersonConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

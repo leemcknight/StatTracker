@@ -12,9 +12,11 @@ namespace McKnight.StatTracker.Model
         public int GameNumber { get; set; }
         public string DayOfWeek { get; set; }
         public string VisitingTeamId { get; set; }
+        public Franchise VisitingTeam { get; set; }
         public string VisitingTeamLeague { get; set; }
         public int VisitingTeamSeasonGameNumber { get; set; }
         public string HomeTeamId { get; set; }
+        public Franchise HomeTeam { get; set; }
         public string HomeTeamLeague { get; set; }
         public int HomeTeamSeasonGameNumber { get; set; }
         public string TimeOfDay { get; set; }

@@ -32,5 +32,10 @@ namespace McKnight.StatTracker
         }
 
         public IEnumerable<Person> People {  get { return new PersonReader().Read(); } }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

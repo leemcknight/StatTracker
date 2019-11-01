@@ -105,7 +105,7 @@ namespace McKnight.StatTracker.Model
         public Ballpark Ballpark { get; set; }        
 
         public DateTime? Date { get; set; }
-        public string StartTime { get; set; }
+        public string StartTime { get { return metaData["starttime"]; } }
         public string EndTime { get; set; }
         public bool UseDH { get; set; }        
         public IList<AtBat> AtBats
