@@ -99,6 +99,7 @@
       <DependentUpon>BoxScorePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DateFormatConverter.cs" />
+    <Compile Include="FranchiseConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

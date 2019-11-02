@@ -116,6 +116,7 @@
     <Compile Include="Pitch.cs" />
     <Compile Include="PitchType.cs" />
     <Compile Include="Play.cs" />
+    <Compile Include="PlayDescription.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayModifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

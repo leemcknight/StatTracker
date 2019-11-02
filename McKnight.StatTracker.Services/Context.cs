@@ -13,7 +13,7 @@ namespace McKnight.StatTracker.Services
         IEnumerable<Franchise> franchises;
         KeyedList<Ballpark> ballparks;
         IEnumerable<PlayModifier> playModifiers;
-        IDictionary<string, string> playDescriptions;
+        KeyedList<PlayDescription> playDescriptions;
         IEnumerable<FieldLocation> fieldLocations;
 
         private static Context instance;
@@ -82,15 +82,15 @@ namespace McKnight.StatTracker.Services
             }
         }
 
-        public IDictionary<string,string> PlayDescriptions
+        public KeyedList<PlayDescription> PlayDescriptions
         {
             get
             {
                 if(playDescriptions == null)
                 {
-                    playDescriptions = new PlayDescriptionReader()
+                    playDescriptions = new KeyedList<PlayDescription>(new PlayDescriptionReader()
                         .Read()
-                        .ToDictionary(kv => kv.Key, kv => kv.Value);
+                        .ToDictionary(desc => desc.Code, desc => desc));
                 }
                 return playDescriptions;
             }

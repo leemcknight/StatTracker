@@ -15,9 +15,12 @@ namespace McKnight.StatTracker.Model
         public int GameNumber { get; set; }
         public string DayOfWeek { get; set; }
         public string VisitingTeamId { get; set; }
+        public Franchise VisitingTeam { get; set; }
         public string VisitingTeamLeague { get; set; }
         public int VisitingTeamGameNumber { get; set; }
         public string HomeTeamId { get; set; }
+
+        public Franchise HomeTeam { get; set; }
         public string HomeTeamLeague { get; set; }
         public int HomeTeamGameNumber { get; set; }
         public int VisitingScore { get; set; }
@@ -28,10 +31,12 @@ namespace McKnight.StatTracker.Model
         public string ForfeitInformation { get; set; }
         public string ProtestInformation { get; set; }
         public string ParkId { get; set; }
+
+        public Ballpark Ballpark { get; set; }
         public int? Attendance { get; set; }
         public int TimeOfGame { get; set; }
-        public string VisitingLineScore { get; set; }
-        public string HomeLineScore { get; set; }
+        public IEnumerable<string> VisitingLineScore { get; set; }
+        public IEnumerable<string> HomeLineScore { get; set; }
         public int VisitingAtBats { get; set; }
         public int VisitingHits { get; set; }
         public int VisitingDoubles { get; set; }

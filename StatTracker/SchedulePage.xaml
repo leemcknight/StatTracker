@@ -19,7 +19,13 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="75,30,0,0" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Team: " />
-                <ComboBox x:Name="cboTeams" ItemsSource="{x:Bind Teams}" SelectedValuePath="Franchise" VerticalContentAlignment="Center" Margin="30,0,50,0" Width="300" />
+                <ComboBox x:Name="cboTeams" ItemsSource="{x:Bind Teams}" SelectedValuePath="Franchise" VerticalContentAlignment="Center" Margin="30,0,50,0" Width="300">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="model:Franchise">
+                            <TextBlock Text="{x:Bind Converter={StaticResource FranchiseConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
                 <TextBlock Text="Year:" />

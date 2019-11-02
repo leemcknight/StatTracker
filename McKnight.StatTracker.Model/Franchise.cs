@@ -19,10 +19,5 @@ namespace McKnight.StatTracker.Model
         public DateTime? LastGame { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-
-        public override string ToString()
-        {
-            return Location + " " + Nickname;
-        }
     }
 }

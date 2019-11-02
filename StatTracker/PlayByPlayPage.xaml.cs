@@ -24,6 +24,7 @@ namespace McKnight.StatTracker
     public sealed partial class PlayByPlayPage : Page
     {
         private Game game;
+        private bool togglePitches = false;
         public PlayByPlayPage()
         {
             this.InitializeComponent();
@@ -39,6 +40,17 @@ namespace McKnight.StatTracker
         {
             this.Game = (Game)e.Parameter;
             base.OnNavigatedTo(e);
+        }
+
+        public bool TogglePitches
+        {
+            get { return togglePitches; }
+            set { this.togglePitches = value;  }
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.TogglePitches = !this.TogglePitches;
         }
     }
 }

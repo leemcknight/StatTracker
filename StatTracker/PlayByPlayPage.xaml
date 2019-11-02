@@ -21,23 +21,24 @@
                 <DataTemplate x:DataType="model:AtBat">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{x:Bind Batter, Converter={StaticResource PersonConverter}}" />
-                            <TextBlock Text="{x:Bind Description}" />
+                            <TextBlock Text="{x:Bind Batter, Converter={StaticResource PersonConverter}}" Margin="0,0,10,0" />
+                            <TextBlock Text="{x:Bind Play.PlayDescription.Description}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <ToggleButton>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{x:Bind Play.PlayDescription}" />
-                                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70D;" />
+                            <ToggleButton Width="100" Click="ToggleButton_Click" >
+                                <StackPanel Orientation="Horizontal" Width="100" >
+                                    <TextBlock Text="{x:Bind Play.PlayDescription.Summary}" />
+                                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70D;" HorizontalAlignment="Right" />
                                 </StackPanel>
                             </ToggleButton>
                         </StackPanel>
-
                         <StackPanel>
-                            <ListView ItemsSource="{x:Bind Pitches}" Visibility="Collapsed">
+                            <ListView ItemsSource="{x:Bind Pitches}" Visibility="Visible">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="model:Pitch">
-                                        <TextBlock Text="{x:Bind Description}" />
+                                        <ListViewItem>
+                                            <TextBlock Text="{x:Bind Description}" />
+                                        </ListViewItem>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>

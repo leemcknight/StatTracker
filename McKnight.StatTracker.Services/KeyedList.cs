@@ -16,6 +16,10 @@ namespace McKnight.StatTracker.Services
             this.backingDictionary = dictionary;
         }
 
+        public bool ContainsKey(string key)
+        {
+            return backingDictionary.ContainsKey(key);
+        }
 
         public T this[string key]
         {

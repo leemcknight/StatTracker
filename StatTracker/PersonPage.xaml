@@ -10,20 +10,22 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
             <TextBlock Text="Search" />
-            <TextBox TextChanged="TextBox_TextChanged" />
+            <TextBox TextChanged="TextBox_TextChanged" Width="350" Margin="20,0,0,0" />
         </StackPanel>
-        <ListView x:Name="lvPeople" ItemsSource="People" HorizontalAlignment="Right" Grid.Row="1">
+        <ListView x:Name="lvPeople" ItemsSource="People" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Margin="30,30,30,30">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Person">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind FirstName}" />
-                        <TextBlock Text=" " />
-                        <TextBlock Text="{x:Bind LastName}" />
+                        <TextBlock Text="{x:Bind}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -20,14 +20,10 @@ namespace McKnight.StatTracker.Model
             get { return baseAdvances;  }
         }
 
-        public string PlayDescription
+        public PlayDescription PlayDescription
         {
             get; set;
-        }
-
-        public string SummaryDescription { get; set; }
-
-        public string FullDescription { get; set; }
+        }        
 
         public string BaseAdvanceString { get; set; }
 

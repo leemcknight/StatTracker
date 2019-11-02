@@ -84,7 +84,7 @@ namespace McKnight.StatTracker.Services
             return Tuple.Create<string, string>("", "");
         }
 
-        private string GetPlayDescription(string descriptionString, IList<PlayModifier> modifiers)
+        private PlayDescription GetPlayDescription(string descriptionString, IList<PlayModifier> modifiers)
         {
             Context context = Context.Instance;
             if (context.PlayDescriptions.ContainsKey(descriptionString))
@@ -103,35 +103,46 @@ namespace McKnight.StatTracker.Services
                         sequence += GetLocationText(loc.ToString()) + " ";
                         
                     }
-                    return "grounds out, " + sequence;
+                    return new PlayDescription { Description = "grounds out, " + sequence, Summary = "Ground Out" };
                 } 
                 else if(descriptionString.StartsWith("SB"))
                 {
                     //stolen base
-                    return "runner steals " + GetLocationText(descriptionString.Substring(2, 1));                        
+                    return new PlayDescription
+                    {
+                        Description = "runner steals " + GetLocationText(descriptionString.Substring(2, 1)),
+                        Summary = "Stolen Base"
+                    };
                 }
                 else if(descriptionString.StartsWith("S"))
                 {
                     //single
-                    return "singles to " + GetLocationText(descriptionString.Substring(1, 1));                        
+                    return new PlayDescription
+                    {
+                        Description = "singles to " + GetLocationText(descriptionString.Substring(1, 1)),
+                        Summary = "Single"
+                    };
                 } 
                 else if(descriptionString.StartsWith("D"))
                 {
                     //double
-                    return "doubles to " + GetLocationText(descriptionString.Substring(1, 1));                        
+                    return new PlayDescription
+                    {
+                        Description = "doubles to " + GetLocationText(descriptionString.Substring(1, 1)),
+                        Summary = "Double"
+                    };
                 }
                 else if(descriptionString.StartsWith("T"))
                 {
                     //triple
-                    return "triples to " + GetLocationText(descriptionString.Substring(1, 1));                        
+                    return new PlayDescription
+                    {
+                        Description = "triples to " + GetLocationText(descriptionString.Substring(1, 1)),
+                        Summary = "Triple"
+                    };
                 }
-
-                if(descriptionString.StartsWith("SF"))
-                {
-                    //sac fly
-                    return "Sacrifice fly to ";
-                }
-                return descriptionString;
+                
+                return new PlayDescription { Summary = descriptionString, Description = descriptionString };
             }
         }
 

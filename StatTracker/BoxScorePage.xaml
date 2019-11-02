@@ -9,8 +9,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                
-        
         <Grid Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -20,29 +18,44 @@
                 <RowDefinition />
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center">
-                <TextBlock Text="{x:Bind BoxScore.VisitingTeamId}" />
-                <TextBlock Text=" vs. " />
-                <TextBlock Text="{x:Bind BoxScore.HomeTeamId}" />
+            <StackPanel Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="{x:Bind BoxScore.VisitingTeam, Converter={StaticResource FranchiseConverter}}" />
+                    <TextBlock Text=" vs. " />
+                    <TextBlock Text="{x:Bind BoxScore.HomeTeam, Converter={StaticResource FranchiseConverter}}" />
+                </StackPanel>
+                <TextBlock Text="{x:Bind BoxScore.Date, Converter={StaticResource DateToString}, ConverterParameter={StaticResource LongDate} }" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center">
                 <TextBlock Text="{x:Bind BoxScore.VisitingScore}" />
                 <TextBlock Text=" - " />
                 <TextBlock Text="{x:Bind BoxScore.HomeScore}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center">
-                <TextBlock Text="{x:Bind BoxScore.DateString}" />
-            </StackPanel>
-            <StackPanel Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="MidnightBlue" BorderThickness="1" HorizontalAlignment="Center">
+            <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="MidnightBlue" BorderThickness="1" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{x:Bind BoxScore.VisitingTeamId}" />
-                    <TextBlock Text="{x:Bind BoxScore.VisitingLineScore}" />
+                    <TextBlock Text="{x:Bind BoxScore.VisitingTeam.Nickname}" />
+                    <GridView ItemsSource="{x:Bind BoxScore.VisitingLineScore}" BorderBrush="MidnightBlue">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Grid>
+                                    <TextBlock Text="{x:Bind}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{x:Bind BoxScore.HomeTeamId}" />
-                    <TextBlock Text="{x:Bind BoxScore.HomeLineScore}" />
+                    <TextBlock Text="{x:Bind BoxScore.HomeTeam.Nickname}" />
+                    <GridView ItemsSource="{x:Bind BoxScore.HomeLineScore}" BorderBrush="MidnightBlue">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Grid>
+                                    <TextBlock Text="{x:Bind}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
                 </StackPanel>
             </StackPanel>
             

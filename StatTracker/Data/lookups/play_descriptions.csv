@@ -1,13 +1,13 @@
-﻿1,Popup to pitcher
-2,Popup to catcher
-3,Popup to first
-4,Popup to second
-5,Popup to third
-6,Popup to shortstop
-7,Fly out to left field
-8,Fly out to center field
-9,Fly out to right field
-K,Strikeout
-HR,Homerun
-W,Walk
-DGR,Ground Rule Double
+﻿1,pops up to pitcher,Popup
+2,pops up to catcher,Popup
+3,pops up to first,Popup
+4,pops up to second,Popup
+5,pops up to third,Popup
+6,popup to shortstop,Popup
+7,flies out to left field,Fly out
+8,flies out to center field,Fly out
+9,flies out to right field,Fly out
+K,strikes out,Strikeout
+HR,homers,Homerun
+W,walks,Walk
+DGR,hits a ground rule double,Ground Rule Double
