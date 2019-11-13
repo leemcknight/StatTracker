@@ -102,8 +102,8 @@ namespace McKnight.StatTracker.Model
         public string VisitingTeamManagerName { get; set; }
         public string HomeTeamManagerId { get; set; }
         public string HomeTeamManagerName { get; set; }
-        public string WinningPitcherId { get; set; }
-        public string  WinningPitcherName { get; set; }
+        public string WinningPitcherId { get; set; }        
+        public string WinningPitcherName { get; set; }
         public string LosingPitcherId { get; set; }
         public string LosingPitcherName { get; set; }
         public string SavingPitcherId { get; set; }
@@ -112,10 +112,12 @@ namespace McKnight.StatTracker.Model
         public string GameWinningBatterName { get; set; }
         public string VisitingStartingPitcherId { get; set; }
         public string VisitingStartingPitcherName { get; set; }
-        public IList<string> VisitingStartingPlayerIds { get; }
-        public IList<string> VisitingStartingPlayerPositions { get; }
-        public IList<string> HomeStartingPlayerIds { get; }
-        public IList<string> HomeStartingPlayerPositions { get; }
+        public IEnumerable<string> VisitingStartingPlayerIds { get; set; }
+        public IEnumerable<Person> VisitingStartingPlayers { get; set; }
+        public IEnumerable<string> VisitingStartingPlayerPositions { get; set; }
+        public IEnumerable<string> HomeStartingPlayerIds { get; set; }
+        public IEnumerable<Person> HomeStartingPlayers { get; set; }
+        public IEnumerable<string> HomeStartingPlayerPositions { get; set; }
         public string AdditionalInfo { get; set; }
         public string AcquisitionInfo { get; set; }
     }

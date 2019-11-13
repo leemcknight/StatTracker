@@ -46,5 +46,10 @@ namespace McKnight.StatTracker
             }
             
         }
+
+        private void navMain_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            this.contentFrame.GoBack();
+        }
     }
 }

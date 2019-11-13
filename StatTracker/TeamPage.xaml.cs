@@ -24,11 +24,34 @@ namespace McKnight.StatTracker
     /// </summary>
     public sealed partial class TeamPage : Page
     {
+        private IEnumerable<Franchise> allFranchises;
+
         public TeamPage()
         {
             this.InitializeComponent();
         }
 
-        public IEnumerable<Franchise> Franchises {  get { return new FranchiseReader().Read(); } }
+        public IEnumerable<Franchise> Franchises {  get 
+            {
+                if(allFranchises == null)
+                {
+                    allFranchises = new FranchiseReader().Read();
+                }
+                return allFranchises.Where(franchise => franchise.LastGame > DateTime.Now); } 
+        }
+
+        private IEnumerable<Franchise> franchiseHistory;
+        public IEnumerable<Franchise> FranchiseHistory { get { return franchiseHistory; } }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView lv = (ListView)sender;
+            if(lv.SelectedItem == null)
+            {
+                return;
+            }
+            franchiseHistory = allFranchises.Where(franchise => franchise.CurrentFranchiseId == ((Franchise)lv.SelectedItem).CurrentFranchiseId);
+            lvHistory.ItemsSource = franchiseHistory;
+        }
     }
 }

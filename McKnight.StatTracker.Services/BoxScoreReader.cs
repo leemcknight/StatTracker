@@ -43,6 +43,66 @@ namespace McKnight.StatTracker.Services
                     TimeOfGame = int.Parse(arr[18]),
                     VisitingLineScore = BuildLineScore(UnQuote(arr[19])),
                     HomeLineScore = BuildLineScore(UnQuote(arr[20])),
+                    HomeStartingPlayerIds = new string[]
+                    {
+                        UnQuote(arr[132]),
+                        UnQuote(arr[135]),
+                        UnQuote(arr[138]),
+                        UnQuote(arr[141]),
+                        UnQuote(arr[144]),
+                        UnQuote(arr[147]),
+                        UnQuote(arr[150]),
+                        UnQuote(arr[153]),
+                        UnQuote(arr[156]),
+                    },
+                    HomeStartingPlayerPositions = new string[]
+                    {
+                        UnQuote(arr[134]),
+                        UnQuote(arr[137]),
+                        UnQuote(arr[140]),
+                        UnQuote(arr[143]),
+                        UnQuote(arr[146]),
+                        UnQuote(arr[149]),
+                        UnQuote(arr[152]),
+                        UnQuote(arr[155]),
+                        UnQuote(arr[158]),
+                    },
+                    HomeStartingPlayers = new Person[]
+                    {
+                        Context.Instance.People[UnQuote(arr[132])],
+                        Context.Instance.People[UnQuote(arr[135])],
+                        Context.Instance.People[UnQuote(arr[138])],
+                        Context.Instance.People[UnQuote(arr[141])],
+                        Context.Instance.People[UnQuote(arr[144])],
+                        Context.Instance.People[UnQuote(arr[147])],
+                        Context.Instance.People[UnQuote(arr[150])],
+                        Context.Instance.People[UnQuote(arr[153])],
+                        Context.Instance.People[UnQuote(arr[156])],
+                    },
+                    VisitingStartingPlayerIds = new string[]
+                    {
+                        UnQuote(arr[105]),
+                        UnQuote(arr[108]),
+                        UnQuote(arr[111]),
+                        UnQuote(arr[114]),
+                        UnQuote(arr[117]),
+                        UnQuote(arr[120]),
+                        UnQuote(arr[123]),
+                        UnQuote(arr[126]),
+                        UnQuote(arr[129]),
+                    },
+                    VisitingStartingPlayers = new Person[]
+                    {
+                        Context.Instance.People[UnQuote(arr[105])],
+                        Context.Instance.People[UnQuote(arr[108])],
+                        Context.Instance.People[UnQuote(arr[111])],
+                        Context.Instance.People[UnQuote(arr[114])],
+                        Context.Instance.People[UnQuote(arr[117])],
+                        Context.Instance.People[UnQuote(arr[120])],
+                        Context.Instance.People[UnQuote(arr[123])],
+                        Context.Instance.People[UnQuote(arr[126])],
+                        Context.Instance.People[UnQuote(arr[129])]
+                    },
                     HomeTeam = Context.Instance.Franchises
                                     .Where(team => team.FranchiseId == UnQuote(arr[6]))
                                     .Where(team => date >= team.FirstGame)

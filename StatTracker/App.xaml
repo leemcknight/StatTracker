@@ -8,6 +8,7 @@
             <local:DateFormatConverter x:Key="DateToString"/>
             <local:PersonNameConverter x:Key="PersonConverter"/>
             <local:FranchiseConverter x:Key="FranchiseConverter" />
+            <local:UriConverter x:Key="UriConverter" />
             <x:String x:Key="LongDate">dddd, dd MMMM yyyy</x:String>
         </ResourceDictionary>
     </Application.Resources>

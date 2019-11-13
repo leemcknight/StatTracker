@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <NavigationView x:Name="navMain" SelectionChanged="navMain_SelectionChanged">
+        <NavigationView x:Name="navMain" SelectionChanged="navMain_SelectionChanged" IsBackEnabled="True" IsBackButtonVisible="Visible" BackRequested="navMain_BackRequested">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Contact" Content="People" Tag="People" />
                 <NavigationViewItem Icon="People" Content="Teams" Tag="Teams" />

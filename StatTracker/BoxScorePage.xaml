@@ -11,55 +11,71 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition />
             </Grid.RowDefinitions>
             <StackPanel Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="{x:Bind BoxScore.VisitingTeam, Converter={StaticResource FranchiseConverter}}" />
                     <TextBlock Text=" vs. " />
                     <TextBlock Text="{x:Bind BoxScore.HomeTeam, Converter={StaticResource FranchiseConverter}}" />
                 </StackPanel>
-                <TextBlock Text="{x:Bind BoxScore.Date, Converter={StaticResource DateToString}, ConverterParameter={StaticResource LongDate} }" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center">
-                <TextBlock Text="{x:Bind BoxScore.VisitingScore}" />
-                <TextBlock Text=" - " />
-                <TextBlock Text="{x:Bind BoxScore.HomeScore}" />
-            </StackPanel>
-            <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="MidnightBlue" BorderThickness="1" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{x:Bind BoxScore.VisitingTeam.Nickname}" />
-                    <GridView ItemsSource="{x:Bind BoxScore.VisitingLineScore}" BorderBrush="MidnightBlue">
-                        <GridView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
-                                    <TextBlock Text="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
+                <TextBlock Text="{x:Bind BoxScore.Date, Converter={StaticResource DateToString}, ConverterParameter={StaticResource LongDate} }" HorizontalAlignment="Center" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,3,0">
+                    <TextBlock Text="{x:Bind BoxScore.VisitingTeam.Nickname}" Margin="0,0,10,0" />
+                    <TextBlock Text="{x:Bind BoxScore.VisitingScore}" />
+                    <TextBlock Text="," />
+                    <TextBlock Text="{x:Bind BoxScore.HomeTeam.Nickname}" Margin="0,0,10,0" />
+                    <TextBlock Text="{x:Bind BoxScore.HomeScore}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{x:Bind BoxScore.HomeTeam.Nickname}" />
-                    <GridView ItemsSource="{x:Bind BoxScore.HomeLineScore}" BorderBrush="MidnightBlue">
-                        <GridView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
+                <StackPanel BorderBrush="{ThemeResource SystemControlHighlightAccentBrush}" BorderThickness="1">
+                    <StackPanel Orientation="Horizontal" BorderBrush="{ThemeResource SystemControlHighlightAccentBrush}" BorderThickness="1">
+                        <TextBlock Text="{x:Bind BoxScore.VisitingTeam.Nickname}"  />
+                        <GridView ItemsSource="{x:Bind BoxScore.VisitingLineScore}" BorderBrush="MidnightBlue">
+                            <GridView.ItemTemplate>
+                                <DataTemplate x:DataType="x:String">
                                     <TextBlock Text="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind BoxScore.HomeTeam.Nickname}" />
+                        <GridView ItemsSource="{x:Bind BoxScore.HomeLineScore}" BorderBrush="{ThemeResource SystemControlHighlightAccentBrush}" BorderThickness="1">
+                            <GridView.ItemTemplate>
+                                <DataTemplate x:DataType="x:String">
+                                    <TextBlock Text="{x:Bind}"/>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-            
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <ItemsControl ItemsSource="{x:Bind BoxScore.HomeStartingPlayers}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="model:Person">
+                            <TextBlock Text="{x:Bind Converter={StaticResource PersonConverter}}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <ItemsControl ItemsSource="{x:Bind BoxScore.VisitingStartingPlayers}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="model:Person">
+                            <TextBlock Text="{Binding Converter={StaticResource PersonConverter}}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
         </Grid>
-        
+
     </Grid>
 </Page>

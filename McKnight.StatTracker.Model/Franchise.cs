@@ -19,5 +19,6 @@ namespace McKnight.StatTracker.Model
         public DateTime? LastGame { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string SvgPath { get { return "Data/franchises/img/svg/" + CurrentFranchiseId + ".svn"; } }
     }
 }
