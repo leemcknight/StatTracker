@@ -125,6 +125,21 @@
     </AppxManifest>
     <Content Include="Data\franchises\CurrentNames.txt" />
     <Content Include="Data\franchises\img\svg\CHN.svg" />
+    <Content Include="Data\franchises\img\svg\CIN.svg" />
+    <Content Include="Data\franchises\img\svg\CLE.svg" />
+    <Content Include="Data\franchises\img\svg\LAN.svg" />
+    <Content Include="Data\franchises\img\svg\MIA.svg" />
+    <Content Include="Data\franchises\img\svg\MIN.svg" />
+    <Content Include="Data\franchises\img\svg\NYA.svg" />
+    <Content Include="Data\franchises\img\svg\NYN.svg" />
+    <Content Include="Data\franchises\img\svg\OAK.svg" />
+    <Content Include="Data\franchises\img\svg\PHI.svg" />
+    <Content Include="Data\franchises\img\svg\PIT.svg" />
+    <Content Include="Data\franchises\img\svg\SFN.svg" />
+    <Content Include="Data\franchises\img\svg\SLN.svg" />
+    <Content Include="Data\franchises\img\svg\TEX.svg" />
+    <Content Include="Data\franchises\img\svg\TOR.svg" />
+    <Content Include="Data\franchises\img\svg\WAS.svg" />
     <Content Include="Data\lookups\play_descriptions.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

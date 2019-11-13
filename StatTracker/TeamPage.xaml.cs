@@ -45,7 +45,7 @@ namespace McKnight.StatTracker
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListView lv = (ListView)sender;
+            GridView lv = (GridView)sender;
             if(lv.SelectedItem == null)
             {
                 return;

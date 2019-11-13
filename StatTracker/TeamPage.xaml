@@ -15,20 +15,20 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Franchises}" SelectionChanged="ListView_SelectionChanged" >
-            <ListView.ItemTemplate>
+        <GridView Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Franchises}" SelectionChanged="ListView_SelectionChanged" >
+            <GridView.ItemTemplate>
                 <DataTemplate x:DataType="model:Franchise">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Height="32" Width="32">
+                    <StackPanel MinHeight="150" MinWidth="150" Padding="16,16,16,16">
+                        <Image>
                             <Image.Source>
-                                <SvgImageSource RasterizePixelHeight="32" RasterizePixelWidth="32" UriSource="{x:Bind Converter={StaticResource UriConverter}}" />
+                                <SvgImageSource UriSource="{x:Bind Converter={StaticResource UriConverter}}" />
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{x:Bind Converter={StaticResource FranchiseConverter} }" />
+                        <TextBlock HorizontalTextAlignment="Center" VerticalAlignment="Bottom" Text="{x:Bind Converter={StaticResource FranchiseConverter} }" />
                     </StackPanel>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </GridView.ItemTemplate>
+        </GridView>
         <ListView x:Name="lvHistory" Grid.Row="1" Grid.Column="1" ItemsSource="{x:Bind FranchiseHistory}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Franchise">
