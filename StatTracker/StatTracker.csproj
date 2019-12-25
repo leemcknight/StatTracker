@@ -124,19 +124,33 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Data\franchises\CurrentNames.txt" />
+    <Content Include="Data\franchises\img\svg\ANA.svg" />
+    <Content Include="Data\franchises\img\svg\ARI.svg" />
+    <Content Include="Data\franchises\img\svg\ATL.svg" />
+    <Content Include="Data\franchises\img\svg\BAL.svg" />
+    <Content Include="Data\franchises\img\svg\BOS.svg" />
+    <Content Include="Data\franchises\img\svg\CHA.svg" />
     <Content Include="Data\franchises\img\svg\CHN.svg" />
     <Content Include="Data\franchises\img\svg\CIN.svg" />
     <Content Include="Data\franchises\img\svg\CLE.svg" />
+    <Content Include="Data\franchises\img\svg\COL.svg" />
+    <Content Include="Data\franchises\img\svg\DET.svg" />
+    <Content Include="Data\franchises\img\svg\HOU.svg" />
+    <Content Include="Data\franchises\img\svg\KCA.svg" />
     <Content Include="Data\franchises\img\svg\LAN.svg" />
     <Content Include="Data\franchises\img\svg\MIA.svg" />
+    <Content Include="Data\franchises\img\svg\MIL.svg" />
     <Content Include="Data\franchises\img\svg\MIN.svg" />
     <Content Include="Data\franchises\img\svg\NYA.svg" />
     <Content Include="Data\franchises\img\svg\NYN.svg" />
     <Content Include="Data\franchises\img\svg\OAK.svg" />
     <Content Include="Data\franchises\img\svg\PHI.svg" />
     <Content Include="Data\franchises\img\svg\PIT.svg" />
+    <Content Include="Data\franchises\img\svg\SDN.svg" />
+    <Content Include="Data\franchises\img\svg\SEA.svg" />
     <Content Include="Data\franchises\img\svg\SFN.svg" />
     <Content Include="Data\franchises\img\svg\SLN.svg" />
+    <Content Include="Data\franchises\img\svg\TBA.svg" />
     <Content Include="Data\franchises\img\svg\TEX.svg" />
     <Content Include="Data\franchises\img\svg\TOR.svg" />
     <Content Include="Data\franchises\img\svg\WAS.svg" />

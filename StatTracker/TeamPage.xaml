@@ -18,13 +18,12 @@
         <GridView Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Franchises}" SelectionChanged="ListView_SelectionChanged" >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="model:Franchise">
-                    <StackPanel MinHeight="150" MinWidth="150" Padding="16,16,16,16">
+                    <StackPanel Height="200" Width="175" Padding="16,16,16,16">
                         <Image>
                             <Image.Source>
                                 <SvgImageSource UriSource="{x:Bind Converter={StaticResource UriConverter}}" />
                             </Image.Source>
                         </Image>
-                        <TextBlock HorizontalTextAlignment="Center" VerticalAlignment="Bottom" Text="{x:Bind Converter={StaticResource FranchiseConverter} }" />
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
